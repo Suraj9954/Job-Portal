@@ -42,7 +42,9 @@ const ApplicantsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        applicants && applicants?.applications?.map((item) => (
+                        applicants && applicants?.applications
+    ?.filter(item => item.status === "pending")
+    ?.map((item) => (
                             <tr key={item._id}>
                                 <TableCell>{item?.applicant?.fullname}</TableCell>
                                 <TableCell>{item?.applicant?.email}</TableCell>
